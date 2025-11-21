@@ -68,7 +68,6 @@ Download the pretrained garden scene [here](https://drive.google.com/file/d/14UC
 ```bash
 python render.py -m output/garden --weather snow --fps 10
 ```
-python src/inference.py --output_dir "outputs/waymo_snowy"  --dataset waymo --weather_type snowy
 
 🔥 **Plug into your GS-based code?**  👉 Check it out [here](https://github.com/Jumponthemoon/WeatherEdit/tree/main/General_Scene)
 
