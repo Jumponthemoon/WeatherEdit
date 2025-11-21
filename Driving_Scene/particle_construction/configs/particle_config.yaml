@@ -1,0 +1,157 @@
+dataset:
+  pandaset:
+      rainy:
+        # Control the number of particles
+        num_drops: 100000
+
+        field_param: [40.0, 0.5, 20, 5]
+        sh_degree: 2
+        
+        # Control the fall speed of particles
+        fall_speed: 0.3
+
+        # Control the transparency of particles
+        opacity_mean: 0.2
+        opacity_std: 0.001
+
+        # Control the size of particles
+        scaling_mean: [0.005, 0.001, 0.06] 
+        scaling_std: [0.001, 0.001, 0.001]
+
+        # Control the layered size of particles
+        scaling_factors: [1,2,4]
+
+        # Control the rotation of particles
+        rotation_axes: [0, 1, 0]
+        rotation_base_angle: 0.40  
+        rotation_std_angle: 0.10  
+        
+        # Control the color of particles
+        color: 0.7
+        
+      snowy:
+        num_drops: 200000
+        field_param: [40.0, 0.5, 20, 5]
+        sh_degree: 2
+        fall_speed: 0.4
+        opacity_mean: 0.5
+        opacity_std: 0.2
+        scaling_mean: [0.006, 0.004, 0.01]
+        scaling_std: [0.001, 0.001, 0.001]
+        rotation_axes: [0, 1, 0]
+        rotation_base_angle: 0.40  
+        rotation_std_angle: 0.20  
+        color: 0.85 
+        scaling_factors: [3,4,6]
+
+      foggy:
+        num_drops: 200000
+        field_param: [40.0, 0.5, 20, 5]
+        sh_degree: 2
+        fall_speed: 0.0
+        opacity_mean: 0.3
+        opacity_std: 0.05
+        scaling_mean: [0.7, 0.7, 0.7]
+        scaling_std: [0.0, 0.0, 0.0]
+        rotation_axes: [0, 1, 0]
+        rotation_base_angle: 0.0
+        rotation_std_angle: 0.0
+        color: 0.65
+        scaling_factors: [1,1,1]
+        beta: 0.1
+
+
+  waymo:
+      rainy:
+        num_drops: 100000
+        field_param: [40.0, 0.5, 20, 5]
+        sh_degree: 2
+        fall_speed: 0.3
+        opacity_mean: 0.2
+        opacity_std: 0.001
+        scaling_mean: [0.005, 0.001, 0.06]
+        scaling_std: [0.001, 0.001, 0.001]
+        rotation_axes: [0, 1, 0]
+        rotation_base_angle: 0.40  
+        rotation_std_angle: 0.10  
+        color: 0.7
+        scaling_factors: [1,2,4]
+
+      snowy:
+        num_drops: 200000
+        field_param: [40.0, 0.5, 20, 5]
+        sh_degree: 2
+        fall_speed: 0.4
+        opacity_mean: 0.5
+        opacity_std: 0.2
+        scaling_mean: [0.006, 0.004, 0.01]
+        scaling_std: [0.001, 0.001, 0.001]
+        rotation_axes: [0, 1, 0]
+        rotation_base_angle: 0.40  
+        rotation_std_angle: 0.20  
+        color: 0.85 
+        scaling_factors: [3,4,6]
+
+      foggy:
+        num_drops: 200000
+        field_param: [40.0, 0.5, 20, 5]
+        sh_degree: 2
+        fall_speed: 0.0
+        opacity_mean: 0.3
+        opacity_std: 0.05
+        scaling_mean: [0.7, 0.7, 0.7]
+        scaling_std: [0.0, 0.0, 0.0]
+        rotation_axes: [0, 1, 0]
+        rotation_base_angle: 0.0
+        rotation_std_angle: 0.0
+        color: 0.65
+        scaling_factors: [1,1,1]
+        beta: 0.1
+
+
+  nuscene:
+    rainy:
+      num_drops: 200000
+      field_param: [ 60.0, 0.5, 20, 5]
+      sh_degree: 2
+      fall_speed: 0.3
+      opacity_mean: 0.2
+      opacity_std: 0.001
+      scaling_mean: [0.005, 0.02, 0.01]
+      scaling_std: [0.001, 0.001, 0.001]
+      rotation_axes: [0, 0, 1]
+      rotation_base_angle: 0.40  # math.pi / 8
+      rotation_std_angle: 0.10  # math.pi / 16
+      color: 0.7
+      scaling_factors: [1,2,4]
+
+    snowy:
+      num_drops: 300000
+      field_param: [ 60.0, 0.5, 20, 5]
+      sh_degree: 2
+      fall_speed: 0.3
+      opacity_mean: 0.5
+      opacity_std: 0.2
+      scaling_mean: [0.006, 0.004, 0.01]
+      scaling_std: [0.001, 0.001, 0.001]
+      rotation_axes: [0, 0, 1]
+      rotation_base_angle: 0.40  # math.pi / 8
+      rotation_std_angle: 0.20  # math.pi / 1
+      color: 0.85 
+      scaling_factors: [3,4,6]
+
+    foggy:
+      num_drops: 200000
+      field_param: [ 60.0, 0.5, 20, 5]
+      sh_degree: 2
+      fall_speed: 0.0
+      opacity_mean: 0.3
+      opacity_std: 0.05
+      scaling_mean: [0.7, 0.7, 0.7]
+      scaling_std: [0.0, 0.0, 0.0]
+      rotation_axes: [0, 0, 1]
+      rotation_base_angle: 0.0
+      rotation_std_angle: 0.0
+      color: 0.65
+      scaling_factors: [1,1,1]
+      beta: 0.1
