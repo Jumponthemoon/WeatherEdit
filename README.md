@@ -1,5 +1,5 @@
 <h2 align="center">
-  🌦️ [AAAI 2026] WeatherEdit: Controllable Weather Editing with 4D Gaussian Field
+  🌦️ WeatherEdit: Controllable Weather Editing with 4D Gaussian Field
 </h2>
 <p align="center">
   <em>
