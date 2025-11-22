@@ -142,5 +142,8 @@ For questions, suggestions, or collaborations:
 
 - 📧 tscq@leeds.ac.uk
 ---
+## 🤝 Acknowledgements
 
-Thanks for your interest in WeatherEdit! We hope it helps bring new life to your 3D scenes 🌧️🌨️🌫️
+This work builds upon [3D Gaussian Splatting](https://repo-link), [img2img-turbo](https://github.com/GaParmar/img2img-turbo) and [OmniRe](https://github.com/ziyc/drivestudio). We thank for their amazing works!
+
+Also, thanks for your interest in WeatherEdit! We hope it helps bring new life to your 3D scenes 🌧️🌨️🌫️
