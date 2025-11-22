@@ -57,16 +57,23 @@ You can use our provided pretrained model for the easiest start. If you would li
 ### A. General Weather (`General Scene/`)
 Please first configure the environment with conda:
 ```bash
+git clone https://github.com/Jumponthemoon/WeatherEdit.git
 cd General_Scene
 conda env create --file environment.yml
 conda activate gaussian_splatting
 ```
-#### 1. Download pretrained model
-Download the pretrained garden scene [here](https://drive.google.com/file/d/14UC6IfCwShcQIZQb9__gNsxC_ZnPqxOU/view?usp=sharing) and put the garden under `output` folder, 
+We provide a complete pipeline to train and render Gaussian scenes with integrated weather effects. 
+
+#### 1. Train Your Scene
+Download the Dataset Pt.1 from [Mip-NeRF 360](https://jonbarron.info/mipnerf360/) and put the `garden` under `data` folder, then run:
+```bash
+python train.py -s path/to/data/
+```
+After training, the model will be saved under `output` folder
 #### 2. Render with Weather Effects
 
 ```bash
-python render.py -m output/garden --weather snow --fps 10
+python render.py -m path/to/model --weather snow --fps 10
 ```
 
 🔥 **Plug into your GS-based code?**  👉 Check it out [here](https://github.com/Jumponthemoon/WeatherEdit/tree/main/General_Scene)
@@ -74,30 +81,44 @@ python render.py -m output/garden --weather snow --fps 10
 ---
 
 ### B. Driving Scene Editing (`Driving_Scene/`)
-Please first configure the environment with conda:
+Please first clone the repo and configure the environment with conda:
 ```bash
+git clone https://github.com/Jumponthemoon/WeatherEdit.git
 cd Driving_Scene
-conda env create --file environment.yml
+
+conda create -n weatheredit python=3.9 -y
 conda activate weatheredit
+
+pip install -r requirements.txt
+pip install git+https://github.com/nerfstudio-project/gsplat.git@v1.3.0
+pip install git+https://github.com/facebookresearch/pytorch3d.git
+pip install git+https://github.com/NVlabs/nvdiffrast
+
+cd third_party/smplx/
+pip install -e .
+cd ../..
 ```
+* Note： if you encounter error `ImportError: cannot import name 'cached_download' from 'huggingface_hub'`, please follow [this](https://github.com/easydiffusion/easydiffusion/issues/1851#issuecomment-2425265522) instruction.
+
 #### 1. Download sample dataset & pretrained model
 ```bash
 cd particle_construction
 ```
-Download the sample dataset [here](https://drive.google.com/file/d/18qwNg_VVcwiyliLW1eDq488lRe8mdnuX/view?usp=sharing) and put it under `data` folder\
-Download the pretrained model [here](https://drive.google.com/file/d/1vXz_-tPkwEU61jFrke9Io044An1j4Bv4/view?usp=sharing) and put it under `output` folder
+Download [sample dataset](https://drive.google.com/file/d/18qwNg_VVcwiyliLW1eDq488lRe8mdnuX/view?usp=sharing) and [pretrained model](https://drive.google.com/file/d/1vXz_-tPkwEU61jFrke9Io044An1j4Bv4/view?usp=sharing), then place them in the `data` and the `output` directory separately.
+
 
 #### 2. Render with Weather Effects
 Run the script to generate rainy weather in pandaset:
 ```bash
+export PYTHONPATH=$(pwd)
 python tools/gen_particle.py --resume_from ./output/pandaset/44/checkpoint_final.pth --weather rainy
 ```
 The rendered video will be saved under `./output/pandaset/44/video_eval` folder
 
-
+> ⭐ **If you like our work or find it useful, please give us a star or cite below. Thanks!**
 
 ---
-> ⭐ **If you like our work or find it useful, please give us a star or cite below. Thanks!**
+
 
 
 ## 📌 Citation

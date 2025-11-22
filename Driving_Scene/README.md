@@ -9,7 +9,7 @@ Edit backgrounds with **snowy**, **rainy**, and **foggy** effects.
 ### **1. Download Dataset & Pretrained Model**
 
 -   **Sample Dataset**\
-    👉 [Download](https://drive.google.com/file/d/1YbDlD0X7YOwhQuvqyFnnVOfFPXfeu9q4/view?usp=sharing) and extract into the `dataset/` folder.
+    👉 [Download](https://drive.google.com/file/d/1YbDlD0X7YOwhQuvqyFnnVOfFPXfeu9q4/view?usp=sharing) and extract into the `datasets/` folder.
 
 -   **Pretrained Model**\
     👉 [Download](https://drive.google.com/file/d/1r38vaV7lb4tFVyq6n3twoDwa5qhqOlti/view?usp=sharing) and place it in the `ckpts/` folder.
@@ -18,7 +18,8 @@ Edit backgrounds with **snowy**, **rainy**, and **foggy** effects.
 
 ### **2. Run Inference**
 Our default setup is for multi-view datasets.
-But if you're working with just single-view and single-frame image, we've got you covered — use `--dataset custom`.
+But if you're working with just single-view and single-frame images, we've got you covered!
+Please prepare your images and mask following the sample dataset structure with filename suffix `_0`, then use `--dataset custom` for inference.
 
 #### **Multi-View & Multi-Frame**
 
@@ -31,7 +32,6 @@ python src/inference.py     --output_dir "outputs/waymo_snowy"     --dataset way
 ``` bash
 python src/inference.py     --output_dir "outputs/custom_snowy"     --dataset custom     --weather_type snowy
 ```
-
 ------------------------------------------------------------------------
 
 ## ❄️ Particle Construction
@@ -55,8 +55,15 @@ export PYTHONPATH=$(pwd)
 
 start_timestep=0   # Starting frame index
 end_timestep=-1    # -1 = use last frame
-
-python tools/train.py     --config_file configs/omnire.yaml     --output_root $output_root     --project $project     --run_name $expname     dataset=waymo/3cams     data.scene_idx=$scene_idx     data.start_timestep=$start_timestep     data.end_timestep=$end_timestep
+python tools/train.py \
+    --config_file configs/omnire.yaml \
+    --output_root $output_root \
+    --project $project \
+    --run_name $expname \
+    dataset=pandaset/3cams \
+    data.scene_idx=$scene_idx \
+    data.start_timestep=$start_timestep \
+    data.end_timestep=$end_timestep
 ```
 
 ------------------------------------------------------------------------

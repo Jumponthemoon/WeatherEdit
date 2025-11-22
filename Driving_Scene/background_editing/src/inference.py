@@ -40,32 +40,36 @@ def tensorize_image(image, normalize=True):
         tensor = transforms.Normalize([0.5], [0.5])(tensor)
     return tensor.unsqueeze(0)
  
-def save_output_images(output_tensors, input_paths, output_dir, view_length, batch_idx, batch_length):
+def save_output_images(output_tensors, input_paths, output_dir, view_length, batch_idx, batch_length,dataset_type):
     os.makedirs(output_dir, exist_ok=True)
 
     # Preload input image sizes to avoid repeated disk I/O
     input_sizes = [Image.open(p).size for p in input_paths]
 
     for j, output_tensor in enumerate(output_tensors):
-
         output_pil = transforms.ToPILImage()(output_tensor.cpu() * 0.5 + 0.5)
-        frame = j // view_length
-        view  = j % view_length
-        idx   = frame * view_length + view
+        if dataset_type == "custom":
+            output_pil = output_pil.resize(input_sizes[j], Image.LANCZOS)
+            out_name = os.path.basename(input_paths[j])
+            output_pil.save(os.path.join(output_dir, out_name))
+        else:
+            frame = j // view_length
+            view  = j % view_length
+            idx   = frame * view_length + view
+        
+            save_flag = (
+                (batch_idx == 0 and frame != 2) or # first batch, not last frame
+                (batch_idx == batch_length - 1 and frame != 0) or # last batch, not first frame
+                (batch_idx not in (0, batch_length - 1) and frame == 1) # middle batches, only middle frame
+            )
 
-        save_flag = (
-            (batch_idx == 0 and frame != 2) or # first batch, not last frame
-            (batch_idx == batch_length - 1 and frame != 0) or # last batch, not first frame
-            (batch_idx not in (0, batch_length - 1) and frame == 1) # middle batches, only middle frame
-        )
+            if not save_flag:
+                continue
 
-        if not save_flag:
-            continue
-
-        output_pil = output_pil.resize(input_sizes[idx], Image.LANCZOS)
-        # save
-        out_name = os.path.basename(input_paths[idx])
-        output_pil.save(os.path.join(output_dir, out_name))
+            output_pil = output_pil.resize(input_sizes[idx], Image.LANCZOS)
+            # save
+            out_name = os.path.basename(input_paths[idx])
+            output_pil.save(os.path.join(output_dir, out_name))
 
 
 if __name__ == "__main__":
@@ -112,10 +116,9 @@ if __name__ == "__main__":
     # disable tv_att for single-frame mode
     if args.dataset == "custom":
         args.tv_att = False
-    args.tv_att = False
     # --- transforms & dataset paths ---
     T_val = build_transform(args.image_prep)
-    image_root = f"./dataset/{args.dataset}/images"
+    image_root = f"./datasets/{args.dataset}/images"
 
     # --- collect frame IDs ---
     input_images = glob.glob(f"{image_root}/*.jpg")
@@ -141,5 +144,5 @@ if __name__ == "__main__":
         with torch.no_grad():
             output = model(x_t, x_t_label,args.alpha,input_length, direction='a2b', caption=prompt, mode='inference',with_seg=args.with_seg)
 
-        save_output_images(output, input_image_paths, args.output_dir,view_length,batch_idx,batch_length)
+        save_output_images(output, input_image_paths, args.output_dir,view_length,batch_idx,batch_length,args.dataset)
 
