@@ -24,6 +24,12 @@
   <a href="https://jumponthemoon.github.io/w-edit">
     <img src="https://img.shields.io/badge/Project-link-blue" alt="Project">
   </a>
+  <a href="https://huggingface.co/papers/2505.20471">
+    <img src="https://img.shields.io/badge/🤗%20HuggingFace-Paper-yellow" alt="HF Paper">
+  </a>
+  <a href="https://huggingface.co/jumponthemoon/WeatherEdit">
+    <img src="https://img.shields.io/badge/🤗%20HuggingFace-Model-green" alt="HF Model">
+  </a>
 </p>
 
 
