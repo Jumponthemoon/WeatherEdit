@@ -58,7 +58,7 @@
 
 ---
 
-## 💡 The Quickiest Start
+## 💡 The Quickest Start
 You can use our provided pretrained model for the easiest start. If you would like to try the whole pipeline, please go to the subfolder for training instructions
 ### A. General Weather (`General Scene/`)
 Please first configure the environment with conda:
