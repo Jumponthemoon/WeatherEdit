@@ -30,7 +30,7 @@
   <a href="https://huggingface.co/jumponthemoon/WeatherEdit">
     <img src="https://img.shields.io/badge/🤗%20HuggingFace-Model-green" alt="HF Model">
   </a>
-  <a href="[https://deepwiki.com/你的GitHub用户名/你的仓库名](https://deepwiki.com/Jumponthemoon/WeatherEdit)">
+  <a href="https://deepwiki.com/Jumponthemoon/WeatherEdit">
     <img src="https://deepwiki.com/badge.svg" alt="DeepWiki">
   </a>
 
