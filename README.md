@@ -65,7 +65,7 @@
 
 ## 💡 The Quickest Start
 You can use our provided pretrained model for the easiest start. If you would like to try the whole pipeline, please go to the subfolder for training instructions
-### A. General Weather (`General Scene/`)
+### A. General Weather (Takes ~1hr)
 Please first configure the environment with conda:
 ```bash
 git clone https://github.com/Jumponthemoon/WeatherEdit.git
@@ -91,7 +91,7 @@ python render.py -m path/to/model --weather snow --fps 10
 
 ---
 
-### B. Driving Scene Editing (`Driving_Scene/`)
+### B. Driving Scene Editing (Takes ~45mins)
 Please first clone the repo and configure the environment with conda:
 ```bash
 git clone https://github.com/Jumponthemoon/WeatherEdit.git
