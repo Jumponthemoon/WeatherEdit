@@ -62,6 +62,7 @@
 - 🖼️ **Global consistency** for multi-view driving scenes (temporal, spatial)
 
 ---
+> ⭐ **If you like our work or find it useful, please give us a star or cite below. Thanks!**
 
 ## 💡 The Quickest Start
 You can use our provided pretrained model for the easiest start. If you would like to try the whole pipeline, please go to the subfolder for training instructions
@@ -126,7 +127,6 @@ python tools/gen_particle.py --resume_from ./output/pandaset/44/checkpoint_final
 ```
 The rendered video will be saved under `./output/pandaset/44/video_eval` folder
 
-> ⭐ **If you like our work or find it useful, please give us a star or cite below. Thanks!**
 
 ---
 
