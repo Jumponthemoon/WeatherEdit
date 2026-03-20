@@ -135,14 +135,15 @@ The rendered video will be saved under `./output/pandaset/44/video_eval` folder
 ## 📌 Citation
 
 ```bibtex
-@article{qian2025wedit,
-      title={WeatherEdit: Controllable Weather Editing with 4D Gaussian Field}, 
-      author={Chenghao Qian and Wenjing Li and Yuhu Guo and Gustav Markkula},
-      year={2025},
-      eprint={2505.20471},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV},
-      url={https://arxiv.org/abs/2505.20471},}  
+@article{qian2026weatheredit,
+  title   = {WeatherEdit: Controllable Weather Editing with 4D Gaussian Field},
+  author  = {Chenghao Qian and Wenjing Li and Yuhu Guo and Gustav Markkula},
+  journal = {Proceedings of the AAAI Conference on Artificial Intelligence},
+  volume  = {40},
+  number  = {10},
+  pages   = {8511--8519},
+  year    = {2026}
+}
 ```
 
 ---
